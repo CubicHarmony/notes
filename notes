@@ -1,0 +1,13 @@
+#/bin/bash
+
+#Custom notes command
+NAME=$1 
+NOTESDIR=~/Documents/notes
+MD=.md
+
+#Create notes dir if it doesn't exist
+mkdir -p $NOTESDIR.md
+
+# Begin writing notes in notes directory given first argument
+cd $NOTESDIR
+vim $NAME$MD
