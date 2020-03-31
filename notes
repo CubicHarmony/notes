@@ -1,13 +1,21 @@
-#/bin/bash
+#!/bin/bash
 
 #Custom notes command
 NAME=$1 
 NOTESDIR=~/Documents/notes
-MD=.md
+MARKDOWN=.md
 
-#Create notes dir if it doesn't exist
-mkdir -p $NOTESDIR.md
+# Create notes dir if it doesn't exist
+mkdir -p $NOTESDIR$MARKDOWN
+
+# If first argument not provided, create 'notes' in current directory
+if [ -z "$NAME" ]; then
+	gvim notes.md
+	exit
+fi
+
+# TODO If first argument is view, print contents of notes directory
 
 # Begin writing notes in notes directory given first argument
 cd $NOTESDIR
-vim $NAME$MD
+vim $NAME$MARKDOWN
